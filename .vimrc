@@ -95,7 +95,9 @@ nnoremap <c-l> <c-w>l
 nnoremap <leader>m <c-^>
 
 " Use system clipboard
-set clipboard=unnamed
+if $TMUX == ''
+  set clipboard+=unnamed
+endif
 
 " CTRL+Space does auto complete
 inoremap <Nul> <C-n>
