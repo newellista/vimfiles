@@ -127,12 +127,13 @@ let g:CommandTCancelMap=['<ESC>','<C-c>']
 let g:CommandTAcceptSelectionSplitMap=['<C-CR>','<C-s>']
 map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
 map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+map <leader>gq :CommandTFlush<cr>\|:CommandT app/liquid<cr>
 map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
 map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
 map <leader>ga :CommandTFlush<cr>\|:CommandT app/assets<cr>
-map <leader>gp :CommandTFlush<cr>\|:CommandT app/presenters<cr>
+map <leader>gd :CommandTFlush<cr>\|:CommandT app/decorators<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gt :CommandTFlush<cr>\|:CommandTTag<cr>
+map <leader>gt :CommandTFlush<cr>\|:CommandT app/themes<cr>
 map <leader>t :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>T :CommandTFlush<cr>\|:CommandT %%<cr>
 
@@ -264,3 +265,5 @@ function! InsertTabWrapper()
 endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
