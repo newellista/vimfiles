@@ -37,9 +37,12 @@
 [submodule ".vim/bundle/vim-javascript-syntax"]
 	path = .vim/bundle/vim-javascript-syntax
 	url = git://github.com/bigjason/vim-javascript-syntax.git
-[submodule ".vim/bundle/vim-slim"]
-	path = .vim/bundle/vim-slim
-	url = https://github.com/slim-template/vim-slim.git
-[submodule ".vim/bundle/salt-vim"]
-	path = .vim/bundle/salt-vim
-	url = https://github.com/saltstack/salt-vim.git
+[submodule ".vim/bundle/ag"]
+	path = .vim/bundle/ag
+	url = https://github.com/rking/ag.vim
+[submodule ".vim/bundle/matchit"]
+	path = .vim/bundle/matchit
+	url = git@github.com:tmhedberg/matchit.git
+[submodule ".vim/bundle/MatchTag"]
+	path = .vim/bundle/MatchTag
+	url = git@github.com:gregsexton/MatchTag.git
