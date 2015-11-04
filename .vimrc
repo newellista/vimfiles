@@ -108,9 +108,6 @@ vnoremap <Leader>. :normal.<cr>
 " Insert a hash rocket with <c-l>
 imap <c-l> <space>=><space>
 
-" Insert a javascript function
-imap <c-j> function()<space>{}<esc>i
-
 " Convert and line to a block start
 imap <c-d> <end><space>do<cr>
 
@@ -162,13 +159,6 @@ augroup filetype_js
   autocmd BufWritePre *.js :%s/\s\+$//e
 augroup END
 
-augroup filetype_php
-  autocmd!
-  autocmd FileType php setlocal number
-  " Comment line of code
-  autocmd FileType php nnoremap <buffer> <localleader>c 0i//<esc>
-augroup END
-
 " Ruby autocmd's
 augroup filetype_ruby
 	autocmd!
@@ -200,6 +190,8 @@ augroup filetype_haml
 	autocmd FileType haml setlocal number
 augroup END
 
+autocmd FileType gitcommit setlocal spell textwidth=72
+
 " Expand %% to current dir
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
@@ -215,14 +207,14 @@ set statusline+=\[%c\:%l\/%L\]
 " Percentage complete
 set statusline+=\ \ %P
 
-" The following is taken from  https://www.destroyallsoftware.com/file-navigation-in-vim.html
-set winwidth=88
-" We have to have a winheight bigger than we want to set winminheight. But if
-" we set winheight to be huge before winminheight, the winminheight set will
-" fail.
-set winheight=5
-set winminheight=5
-set winheight=999
+" " The following is taken from  https://www.destroyallsoftware.com/file-navigation-in-vim.html
+" set winwidth=88
+" " We have to have a winheight bigger than we want to set winminheight. But if
+" " we set winheight to be huge before winminheight, the winminheight set will
+" " fail.
+" set winheight=5
+" set winminheight=5
+" set winheight=999
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
