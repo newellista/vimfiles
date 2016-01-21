@@ -27,7 +27,7 @@ set mouse=a
 " make searches case-sensitive only if they contain upper-case characters
 set ignorecase smartcase
 " highlight current line
-set cursorline
+" set cursorline
 set cmdheight=1
 set switchbuf=useopen
 " Add tab name to top of window
@@ -76,6 +76,9 @@ inoremap <c-u> <esc>viwUi
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" split screen and edit ~/.tmux.conf
+nnoremap <leader>et :vsplit ~/.tmux.conf<cr>
+
 " double quote current word
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 
@@ -95,9 +98,10 @@ nnoremap <c-l> <c-w>l
 nnoremap <leader>m <c-^>
 
 " Use system clipboard
-if $TMUX == ''
-  set clipboard+=unnamed
-endif
+set clipboard=unnamed
+" if $TMUX == ''
+"   set clipboard+=unnamed
+" endif
 
 " CTRL+Space does auto complete
 inoremap <Nul> <C-n>
@@ -259,3 +263,15 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" tslime/rspec
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
+
+" vim-rspec mappings
+map <leader>r :call RunCurrentSpecFile()<CR>
+map <leader>s :call RunNearestSpec()<CR>
+map <leader>l :call RunLastSpec()<CR>
+map <leader>a :call RunAllSpecs()<CR>
+
+let g:tslime_always_current_session = 1 
+let g:tslime_always_current_window = 1
