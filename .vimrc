@@ -65,9 +65,9 @@ colorscheme solarized
 " remove search highlight
 nnoremap <leader><CR> :nohlsearch<CR>
 " delete current line - changed to c-x because c-d is a system mapping.
-nnoremap <c-x> dd
-inoremap <c-x> <esc>ddi
-inoremap <c-X> <esc>cc
+" nnoremap <c-x> dd
+" inoremap <c-x> <esc>ddi
+" inoremap <c-X> <esc>cc
 
 " upcase current word in insert mode
 inoremap <c-u> <esc>viwUi
@@ -123,7 +123,9 @@ map <leader>gr :topleft :split config/routes.rb<cr>
 " Open the Gemfile in a split window
 map <leader>gg :topleft 100 :split Gemfile<cr>
 
+set wildignore+=node_modules
 " Command-T Key Bindings
+let g:CommandTWildIgnore='.*'
 let g:CommandTCancelMap=['<ESC>','<C-c>']
 let g:CommandTAcceptSelectionSplitMap=['<C-CR>','<C-s>']
 map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
@@ -134,7 +136,6 @@ map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
 map <leader>ga :CommandTFlush<cr>\|:CommandT app/assets<cr>
 map <leader>gd :CommandTFlush<cr>\|:CommandT app/decorators<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gt :CommandTFlush<cr>\|:CommandT app/themes<cr>
 map <leader>t :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>T :CommandTFlush<cr>\|:CommandT %%<cr>
 
@@ -151,6 +152,16 @@ map <Down> :echo "IMPOSSIBRU!!"<cr>
 
 " File types to hide in the file browser
 let g:netrw_list_hide= '.*\.swp$'
+
+" Elixir autocmd's
+augroup filetype_elixir
+	autocmd!
+	autocmd FileType elixir setlocal number
+
+  " remove traling whitespace
+  autocmd BufWritePre *.ex :%s/\s\+$//e
+  autocmd BufWritePre *.exs :%s/\s\+$//e
+augroup END
 
 " Javascript autocmd's
 augroup filetype_js
